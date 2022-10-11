@@ -13,7 +13,6 @@ def thriftpyi(
     _generate_stubs(interfaces, output_dir, is_async, strict_optional)
     _generate_init(interfaces, output_dir)
     path = Path(output_dir).resolve()
-    subprocess.check_call([f"autoflake -i -r {path.joinpath('*')}"], shell=True)
     subprocess.check_call(["black", "--quiet", f"{path}"])
 
 
